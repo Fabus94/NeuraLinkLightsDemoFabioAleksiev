@@ -1,0 +1,738 @@
+﻿
+/*settings for image files*/
+
+.orangeDoc-btn-wrapper img {
+    height: 60px;
+    width: 45px;
+}
+
+.orangeDoc-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+.YellowDoc-btn-wrapper img {
+    height: 60px;
+    width: 60px;
+}
+
+.YellowDoc-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+.greenDoc-btn-wrapper img {
+    height: 60px;
+    width: 60px;
+}
+
+.greenDoc-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.OrangeContainer div:hover {
+    background-image: linear-gradient(to right, #FFE5B4, floralwhite );
+    border-radius: 3px !important;
+}
+
+.GreenContainer div:hover {
+    background-image: linear-gradient(to right, #FFE5B4, floralwhite );
+    border-radius: 27px !important;
+}
+
+
+.orangeDoc-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.greenDoc-btn-wrapper a {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.YellowDoc-btn-wrapper input[type=submit] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.orangeDoc-btn-wrapper img:hover {
+    background-color: coral;
+}
+
+.grangeDoc-btn-wrapper img:hover {
+    background-color: coral;
+}
+
+
+/*Images___________________*/
+
+.CloseImgX {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+    .CloseImgX:hover {
+        width: 35px;
+        height: 35px;
+    }
+
+#DocImage {
+    width: 612px;
+    height: 572px;
+}
+
+#DocumentImage-Master {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+#attention-grab-img {
+    height: 15px;
+    width: 15px;
+}
+
+.pdfIconMenu {
+    margin-right: 20px;
+}
+    /*For Pdf icon menu*/
+    .pdfIconMenu img {
+        height: 35px;
+        width: 35px;
+    }
+
+        .pdfIconMenu img:hover {
+            height: 40px;
+            width: 40px;
+        }
+
+    .pdfIconMenu input {
+        height: 35px;
+        width: 35px;
+    }
+
+        .pdfIconMenu input:hover {
+            height: 40px;
+            width: 40px;
+        }
+
+
+/*Setting form comment section*/
+#PdfViewer-Master-Wrapper_UpdateM {
+    max-width: 612px;
+    max-height: 572px;
+    overflow: hidden;
+}
+
+/* inner wrapper: make responsive */
+.responsive-wrapper-wxh-572x612_UpdateM {
+    position: relative;
+    height: 0; /* gets height from padding-bottom */
+    /* put following styles (necessary for overflow and scrolling handling on mobile devices) inline in .responsive-wrapper around iframe because not stable in CSS:
+    -webkit-overflow-scrolling: touch; overflow: auto; */
+}
+
+/*.responsive-wrapper_min iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }*/
+
+/* padding-bottom = h/w as % -- sets aspect ratio */
+/* YouTube video aspect ratio */
+.responsive-wrapper-wxh-572x612_UpdateM {
+    padding-bottom: 107%;
+}
+
+/* general styles */
+/* ============== */
+.set-border {
+    border: 1px inset #808080;
+}
+
+
+
+.set-padding {
+    padding: 2px;
+}
+
+.set-margin {
+    margin: 8px;
+}
+
+.center-block-horiz {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+
+/*Home and Windows*/
+
+.AIDWINDOW {
+    width: 572px;
+    height: 612px;
+    margin: 10px 20px 10px 20px;
+}
+
+.HomeFromTop2 img:hover {
+    width: 104px;
+    height: 104px;
+}
+
+.HomeFromTop img:hover {
+    width: 34px;
+    height: 34px;
+}
+
+
+
+.HomeButton {
+    background-image: url('../img/future_white_sample.png');
+}
+
+.MarkedBackground2 {
+    background-color: #FF2E03;
+}
+
+.MarkedBackground3 {
+    background-image: linear-gradient(-13deg,#e8f7f6,#f3fafe,#ffffff );
+    background-size: cover;
+}
+
+
+.MarkedBackground {
+    width: 100%; /* Set the width of the sidebar */
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: cover;
+    background-image: linear-gradient(to right, white, white, #DCDCDC);
+}
+
+    .MarkedBackground a {
+        color: #FF2E03;
+        font-size: 18px
+    }
+
+        .MarkedBackground a:hover {
+            font-size: 20px;
+        }
+
+
+
+.HomeFromTop {
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.HomeFromTop2 {
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+
+
+/*PostReplyCom_Options*/
+
+.ReplyHeadingC {
+    color: #0094ff;
+}
+
+.ReplyForm {
+    width: 87%;
+}
+
+.postComment textarea {
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: both;
+}
+
+.postComment header {
+    font-size: 33px;
+}
+
+.ReplyForm textarea {
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: solid 2px #0094ff;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: both;
+}
+
+.ReplyForm header {
+    font-size: 33px;
+}
+
+
+/*Settings_Message-Nav*/
+
+#MsgDocImage {
+    max-width: 270px;
+    max-height: 258px;
+}
+
+
+.AvatIdentDoc {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    box-shadow: -1px 9px 40px -12px rgb(43, 40, 40);
+}
+
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 306px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 3; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgba(240,248,255, 0.4);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    transition: 1s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*searchMenu*/
+
+
+
+#responsive-wrapper-wxh-572x612_SearchRes {
+    position: relative;
+    height: 0;
+}
+
+.Crystal {
+    background-color: rgba(240,248,255, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: 4px 8px rgba(0, 0, 0, 0.029);
+}
+
+.CrystalNoImgSh {
+    background-color: rgba(240,248,255, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: 4px 8px rgba(0, 0, 0, 0.029);
+}
+
+    .Crystal img {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.FireGlass {
+    background-color: rgba(70, 192, 23, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: 4px 8px rgba(0, 0, 0, 0.029);
+}
+
+.FireGlass {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.set-box-shadow_search {
+    -webkit-box-shadow: 4px 4px 14px #4f4f4f;
+    -moz-box-shadow: 4px 4px 14px #4f4f4f;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.029), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*44px smaller than result viewer*/
+#keyword {
+    border: solid 2px #0b0c0d;
+    border-radius: 5px !important;
+    width: 100%;
+    height: 43px;
+    background-color: white;
+}
+
+.Result ul {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 14px;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 4px 8px rgba(0, 0, 0, 0.029);
+    z-index: -1;
+}
+
+.Result img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.029), 0 6px 20px 0 rgba(0, 0, 0, 0.029);
+    z-index: -1;
+}
+
+
+
+.Result ul:hover {
+    background-color: whitesmoke;
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.09), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+    z-index: 1;
+    transition: 0.6s;
+    text-shadow: none;
+    opacity: 1;
+}
+
+.Result img {
+    max-width: 76px;
+    max-height: 71px
+}
+
+.Result2 ul {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 14px;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 4px 8px rgba(0, 0, 0, 0.029);
+    z-index: -1;
+}
+
+.Result2 img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.029), 0 6px 20px 0 rgba(0, 0, 0, 0.029);
+    z-index: -1;
+}
+
+
+
+.Result2 ul:hover {
+    background-color: aliceblue;
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.09), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+    z-index: 1;
+    transition: 0.6s;
+    text-shadow: none;
+    opacity: 0.96;
+}
+
+.Result2 img {
+    max-width: 76px;
+    max-height: 71px
+}
+
+#optic {
+    width: 42px;
+    height: 42px;
+}
+
+    #optic:hover {
+        width: 44px;
+        height: 44px;
+    }
+
+#PdfViewer-Master-Wrapper_SearchRes {
+    overflow: hidden;
+    background-color: white;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 86px; /* Stay at the top */
+    right: 0;
+    opacity: 0.95;
+    padding-top: 20px;
+    transition: 1s;
+    overflow: hidden;
+}
+
+
+.CreateMenu {
+    background-color: white;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 86px; /* Stay at the top */
+    opacity: 0.98;
+    padding-top: 20px;
+    left: 0;
+    transition: 1s;
+   
+}
+.InternalCreateMenu {
+    max-height: 612px;
+    overflow-y: scroll;
+ 
+}
+
+.marginElementBottom{
+    margin-bottom: 300px;
+}
+
+.marginElementBottom2 {
+    margin-bottom: 150px;
+}
+
+#PdfViewer-Master-Wrapper_Search {
+    /*max-width: 512px;*/
+    max-height: 100%;
+    overflow: hidden;
+}
+
+/* inner wrapper: make responsive */
+.responsive-wrapper-wxh-572x612-Search {
+    position: relative;
+    height: 0; /* gets height from padding-bottom */
+    /* put following styles (necessary for overflow and scrolling handling on mobile devices) inline in .responsive-wrapper around iframe because not stable in CSS:
+    -webkit-overflow-scrolling: touch; overflow: auto; */
+}
+
+/*.responsive-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }*/
+
+/* padding-bottom = h/w as % -- sets aspect ratio */
+/* YouTube video aspect ratio */
+.responsive-wrapper-wxh-572x612-Search {
+    padding-bottom: 107%;
+}
+
+
+
+#inputsecview {
+    height: 100px; /* Full-height: remove this if you want "auto" height */
+    width: 306px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 3; /* Stay on top */
+    top: 11px; /* Stay at the top */
+    right: 0;
+    margin-top: 9px;
+    transition: 1s;
+}
+
+#header {
+    margin-right: 306px;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-width: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+
+    #PdfViewer-Master-Wrapper_SearchRes {
+        width: 286px;
+        height: 306px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+
+@media screen and (min-width: 1960px) {
+}
+
+
+/*General Typography Options*/
+
+.MessageMain {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 18px;
+    font-family: 'Dosis', sans-serif;
+}
+#ElectroGreenNumber {
+    color: #00FF00;
+}
+
+.gen-msg-Props {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 18px;
+    font-family: 'Dosis', sans-serif;
+}
+
+
+
+
+.gen-article {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.gen-article-Notf {
+    margin: 0 auto;
+}
+
+.gen-statement {
+    line-height: 1.375;
+    white-space: pre-wrap;
+    padding: 1em;
+    font-size: 22px
+}
+
+.gen-statement-Notf {
+    line-height: 1.1;
+    white-space: pre-wrap;
+    padding: 1em;
+    font-size: 15px
+}
+
+.gen-props {
+    font-size: 22px
+}
+
+.gen-msg-Props {
+    font-size: 16px
+}
+
+.InfoTextIR {
+    color: steelblue;
+    font-family: 'Dosis', sans-serif;
+    font-size: 27px;
+    margin: 6px,6px,6px,6px;
+    line-height: 1.375;
+    white-space: pre-wrap;
+    padding: 1em;
+}
+
+#ImportantText {
+    font-size: 23px;
+    color: #FF2E03;
+}
+
+#ImportantTextC {
+    color: #FF2E03;
+}
+
+@media screen and (max-width: 600px) {
+    .gen-props {
+        font-size: 17px
+    }
+
+    .gen-article {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .gen-statement {
+        line-height: 1.375;
+        white-space: pre-wrap;
+        padding: 1em;
+        font-size: 16px
+    }
+
+    .InfoTextIR {
+        color: steelblue;
+        font-family: 'Dosis', sans-serif;
+        font-size: 22px;
+    }
+
+    #ImportantText {
+        font-size: 16px;
+        color: #FF2E03;
+    }
+
+    #ThisHoverInv {
+        font-size: 16px;
+       transition: 0.5s;
+    }
+    #ThisHoverInv:hover {
+        font-size: 16px;
+        color: #FF2E03;
+        transition: 0.5s;
+    }
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: rgba(240,248,255, 0.4);
+    min-width: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-shadow: 4px 8px rgba(0, 0, 0, 0.029);
+        display: block;
+    }
+
+/* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: aliceblue;
+        box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.09), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+        z-index: 1;
+        transition: 0.6s;
+        text-shadow: none;
+        opacity: 0.96;
+    }
+
+.OptionsIconMenu img {
+    height: 50px;
+    width: 50px;
+    transition: 0.2s;
+}
+
+    .OptionsIconMenu img:hover {
+        height: 55px;
+        width: 55px;
+        transition: 0.2s;
+    }
+
+

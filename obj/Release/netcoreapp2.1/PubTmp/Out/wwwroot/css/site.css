@@ -1,0 +1,39 @@
+﻿
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #000034;
+    min-width: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 3;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: gray;
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.09), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+    z-index: 1;
+    transition: 0.6s;
+    text-shadow: none;
+    opacity: 0.96;
+}
+
+.body {
+    --my-var2: 0px;
+}
+
+

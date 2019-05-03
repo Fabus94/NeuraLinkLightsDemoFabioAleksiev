@@ -1,0 +1,142 @@
+﻿
+.headerTag {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 2; /* Stay on top */
+    top: 0px; /* Stay at the top */
+    width: 100%; /* Set the width of the sidebar */
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: cover;
+    background-color: #ffdf00;
+}
+
+#pinUp1 {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 2; /* Stay on top */
+    top: 15px; /* Stay at the top */ 
+    left: 30px;
+}
+
+#pinUp2 {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 3; /* Stay on top */
+    top: 240px; /* Stay at the top */
+    left: 30px;
+}
+
+#pinUp3 {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 2; /* Stay on top */
+    top: 15px; /* Stay at the top */
+    right: 30px;
+}
+
+#LinkClear {
+    color: dodgerblue;
+   
+}
+
+#LinkClear:hover {
+    color: royalblue;
+}
+
+#changeNLight form {
+    width: 30%;
+}
+
+/*overwrite bootstrap parameters form button height*/ 
+#ButtonMaxHeightAdjst{
+    max-height: 38px !important;
+}
+
+
+/*Overwrite bootstrap col padding*/
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+.Sq2 {
+    height: var(--my-var2);
+    width:  var(--my-var2);
+    cursor: crosshair;
+}
+
+/*Setting draw section*/
+#MasterWrapper {
+    width: 1708px;
+    height: 612px;
+}
+
+/* inner wrapper: make responsive */
+.responsive-wrapper {
+    position: relative;
+    height: 0; /* gets height from padding-bottom */
+}
+
+
+.responsive-wrapper {
+    padding-bottom: 38%;
+}
+
+#MasterWrapper2 {
+    width: 576px;
+    height: 612px;
+    display: inline-block;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* inner wrapper: make responsive */
+.responsive-wrapper2 {
+    position: relative;
+    height: 0; /* gets height from padding-bottom */
+}
+
+
+.responsive-wrapper2 {
+    padding-bottom: 107%;
+}
+
+.select{
+    cursor: pointer;
+    display: block;
+}
+
+
+
+/* Change color of dropdown links on hover */
+    .select:hover {
+        background-color: lightgray;
+        color: orangered;
+        transition: 0.2s;
+    }
+
+.set-border {
+    border: 1px solid black;
+}
+
+.set-border2 {
+    border: 1px solid gray;
+}
+
+
+.set-padding {
+    padding: 8px;
+}
+
+.set-box-shadow {
+    -webkit-box-shadow: 4px 4px 14px #4f4f4f;
+    -moz-box-shadow: 4px 4px 14px #4f4f4f;
+    box-shadow: 4px 4px 14px #4f4f4f;
+}
+
+.set-margin {
+    margin: 8px;
+}
+
+.center-block-horiz {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

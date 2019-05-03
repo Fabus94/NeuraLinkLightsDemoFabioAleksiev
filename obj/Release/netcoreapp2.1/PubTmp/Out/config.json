@@ -1,0 +1,11 @@
+{
+  "ConnectionStrings": {
+    "lightsConnectionString": "Server=tcp:lightssvr.database.windows.net,1433;Initial Catalog=Lights;Persist Security Info=False;User ID=Fabys;Password=Welcometothejungle1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  },
+  "Loggin": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  }
+}

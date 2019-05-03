@@ -1,0 +1,406 @@
+﻿<section (mouseover)="mousePos = 1" (mouseout)="mousePos = 0"  class="row headerTag">
+    <div class="container">
+        <br />
+        <h1 class="text-center">Neuralink lights demo</h1>
+        <br />
+
+        <img class="img" id="pinUp1" width="65" height="108" alt="Peacock" src="https://artcontent.blob.core.windows.net/lights/Use_Peacock_042519.png" />
+
+        <div (mouseover)="mouseOverPlayDrw()" id="pinUp2">
+            <div *ngIf="!CheckPlayBack()">
+                <label>Play drw pattern selection:</label><br />
+            </div>
+            <div class="row" *ngIf="CheckPlayBack()">
+                <label>Stop drw pattern</label>&nbsp;&nbsp;&nbsp;<button class="btn btn-danger btn-sm" (click)="PlayBackStop()" id="ButtonMaxHeightAdjst">Stop</button>
+            </div>
+
+            <div class="row" *ngIf="!CheckPlayBack()">
+                &nbsp;&nbsp;&nbsp;<label>Filter by tag</label>
+                &nbsp;<input type='text'
+                             [(ngModel)]='listFilter' />
+            </div>
+            <br />
+            <div *ngIf="!CheckPlayBack()" class="row justify-content-between">
+                <div class="col">
+                    <div class="container">
+                        <div (click)="Settings5()" *ngIf="!CheckPlayBack()" class="row justify-content-between set-border2" style="background-color: white; cursor:pointer; width:616px; height:30px;">
+                            <div class="col-11"> <span style=" color:orangered">&nbsp;{{PlayBackModelDateR() | date: 'short'}} & tags: {{PlayBackModelTagR()}}</span></div>
+                            <div class="col-1"><img class="img" src="https://artcontent.blob.core.windows.net/lights/arrow_right_Use_19115.png" alt="select" width="20" height="20" /></div>
+                        </div>
+                        <div id="MasterWrapper2" class="set-border2" *ngIf="OpenSettings == 5">
+                            <div class="
+responsive-wrapper2"
+                                 style="-webkit-overflow-scrolling: touch; overflow: auto;">
+                                <div class="row select" *ngFor="let v of filteredLightEntriesList">
+                                    <span (click)="OpenForPlayBack(v)" value="v">&nbsp;&nbsp;&nbsp;&nbsp;{{ v.datetime | date: 'short'}} & tags: {{v.pattern}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row" *ngIf="!CheckPlayBack()">&nbsp;<button class="btn btn-success btn-sm" (click)="PlayBackDrawingPattern()" id="ButtonMaxHeightAdjst">Play</button>&nbsp;<button class="btn btn-dark btn-sm" (click)="OpenForPlayBackLP()" id="ButtonMaxHeightAdjst">Run Last</button>&nbsp;&nbsp;&nbsp;&nbsp;<label>| Compile new from collected data:</label>&nbsp;<button class="btn btn-dark btn-sm" (click)="CompilePatternFromData()" id="ButtonMaxHeightAdjst">Compile</button></div>
+                </div>
+            </div>
+            <br />
+
+            <br />
+
+        </div>
+
+        <ul id="pinUp3" class="list-unstyled">
+            <li>
+                <span style="color:green">Number of entries: {{nEntries}}</span>
+            </li>
+            <li>
+                <span style="color: green">Date of last entrie: {{LastEntryDate | date: 'short'}}</span>
+            </li>
+            <li>
+                <br />
+            </li>
+            <li *ngIf="ControllChangeCheck()">
+                {{ControlReturn()}}&nbsp;{{nLightsChanged}}
+            </li>
+            <li *ngIf="CheckRecording()==1">
+                <span style="color:red">
+                    {{ReturnRecordingMsg()}}&nbsp;<button class="btn btn-danger btn-sm" (click)="StopRec()">Stop Recording</button>
+                </span>
+            </li>
+            <li *ngIf="CheckRecording()==3">
+                <label>Add recording tags?</label>
+            </li>
+            <li *ngIf="CheckRecording()==3">
+                <div class="row">
+                    <span>
+                        <input type='text' placeholder="eg. Blue Drw Jane's "
+                               [(ngModel)]='patternTag' />
+                    </span>&nbsp;
+                    <span><button class="btn btn-success btn-sm" (click)="RegInactive()">Ok</button></span>&nbsp;
+                    <span><button class="btn btn-danger btn-sm" (click)="RegDecline()">Decline</button></span>
+                </div>
+            </li>
+            <li *ngIf="CheckRecording()==1 && draw > 0 && !CheckPlayBack()">
+                <span *ngIf="direction == 1">Right&nbsp;</span>
+                <span *ngIf="direction == 2">Left&nbsp;</span>
+                <span *ngIf="direction == 5">Left-Up&nbsp;</span>
+                <span *ngIf="direction == 6">Left-Down&nbsp;</span>
+                <span *ngIf="direction == 7">Right-Up&nbsp;</span>
+                <span *ngIf="direction == 8">Right-Down&nbsp;</span>
+                <span *ngIf="direction == 3">Up&nbsp;</span>
+                <span *ngIf="direction == 4">Down&nbsp;</span>
+
+            </li>
+            <li *ngIf="CheckPlayBack() && CheckRecording()==0">
+                <span *ngIf="RetDirection() == 1">Right&nbsp;</span>
+                <span *ngIf="RetDirection() == 2">Left&nbsp;</span>
+                <span *ngIf="RetDirection() == 5">Left-Up&nbsp;</span>
+                <span *ngIf="RetDirection() == 6">Left-Down&nbsp;</span>
+                <span *ngIf="RetDirection() == 7">Right-Up&nbsp;</span>
+                <span *ngIf="RetDirection() == 8">Right-Down&nbsp;</span>
+                <span *ngIf="RetDirection() == 3">Up&nbsp;</span>
+                <span *ngIf="RetDirection() == 4">Down&nbsp;</span>
+            </li>
+
+        </ul>
+
+
+
+
+        <app-timer-control-lights-test>
+            
+        </app-timer-control-lights-test>
+        <br />
+
+        <div class="row justify-content-around" *ngIf="!CheckPlayBack()">
+            <div class="col-4">
+                <div class="container">
+                    <div class="row" id="changeNLight" *ngIf="CheckRecording()==0">
+                        <div class="container">
+
+                            <label> Number of lights:</label>
+                            <div class="row">
+                                <form (submit)="ChangeNumberLights()" #theForm="ngForm" novalidate>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="lights" [(ngModel)]="nLights" #lights="ngModel" />
+                                    </div>
+                                </form>
+                                &nbsp; &nbsp;
+                                <button (click)="ChangeNumberLights()" id="ButtonMaxHeightAdjst" class="btn btn-primary btn-sm">Change</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="container">
+
+                            <div class="row offset-3">  <label>Select active colours:</label></div>
+
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="container">
+                                        <button class="btn btn-success btn-sm text-center" (click)="Settings1()">C1</button>
+                                        <br />
+                                        <div class="dropdown">
+                                            <img *ngIf="OpenSettings == 1" class="img" width="50" height="50" alt="Select" src="https://artcontent.blob.core.windows.net/lights/Use_Leaf_042419.png" />
+                                            <div *ngIf="OpenSettings == 1" id="myDropdown" class="dropdown-content">
+                                                <a (click)="Sel(1)" style="color:red; cursor:pointer;">Red</a>
+                                                <a (click)="Sel(2)" style="color:green; cursor:pointer;">Green</a>
+                                                <a (click)="Sel(3)" style="color:whitesmoke; cursor:pointer;">White</a>
+                                                <a (click)="Sel(4)" style="color:royalblue; cursor:pointer;">Blue</a>
+                                                <a (click)="Sel(5)" style="color:yellow; cursor:pointer;">Yellow</a>
+                                                <a (click)="Sel(6)" style="color:purple; cursor:pointer;">Purple</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="container">
+                                        <button class="btn btn-success btn-sm text-center" (click)="Settings2()">C2</button>
+                                        <br />
+                                        <div class="dropdown">
+                                            <img *ngIf="OpenSettings == 2" class="img" width="50" height="50" alt="Select" src="https://artcontent.blob.core.windows.net/lights/Use_Leaf_042419.png" />
+                                            <div *ngIf="OpenSettings == 2" id="myDropdown" class="dropdown-content">
+                                                <a (click)="Sel(1)" style="color:red; cursor:pointer;">Red</a>
+                                                <a (click)="Sel(2)" style="color:green; cursor:pointer;">Green</a>
+                                                <a (click)="Sel(3)" style="color:whitesmoke; cursor:pointer;">White</a>
+                                                <a (click)="Sel(4)" style="color:dodgerblue; cursor:pointer;">Blue</a>
+                                                <a (click)="Sel(5)" style="color:yellow; cursor:pointer;">Yellow</a>
+                                                <a (click)="Sel(6)" style="color:purple; cursor:pointer;">Purple</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="container">
+                                        <button class="btn btn-success btn-sm text-center" (click)="Settings3()">C3</button>
+                                        <br />
+                                        <div class="dropdown">
+                                            <img *ngIf="OpenSettings == 3" class="img" width="50" height="50" alt="Select" src="https://artcontent.blob.core.windows.net/lights/Use_Leaf_042419.png" />
+                                            <div *ngIf="OpenSettings == 3" id="myDropdown" class="dropdown-content">
+                                                <a (click)="Sel(1)" style="color:red; cursor:pointer;">Red</a>
+                                                <a (click)="Sel(2)" style="color:green; cursor:pointer;">Green</a>
+                                                <a (click)="Sel(3)" style="color:whitesmoke; cursor:pointer;">White</a>
+                                                <a (click)="Sel(4)" style="color:dodgerblue; cursor:pointer;">Blue</a>
+                                                <a (click)="Sel(5)" style="color:yellow; cursor:pointer;">Yellow</a>
+                                                <a (click)="Sel(6)" style="color:purple; cursor:pointer;">Purple</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="container">
+
+                            <div class="row offset-4"><label class="text-center">Drawing:</label></div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="container">
+                                        <button class="btn btn-success btn-sm text-center" (click)="SettingsDrawingColour()">Drw Colour</button>
+                                        <br />
+                                        <div class="dropdown">
+                                            <img *ngIf="OpenSettings == 4" class="img" width="50" height="50" alt="Select" src="https://artcontent.blob.core.windows.net/lights/Use_Leaf_042419.png" />
+                                            <div *ngIf="OpenSettings == 4" id="myDropdown" class="dropdown-content">
+                                                <a (click)="Sel(1)" style="color:red; cursor:pointer;">Red</a>
+                                                <a (click)="Sel(2)" style="color:green; cursor:pointer;">Green</a>
+                                                <a (click)="Sel(3)" style="color:whitesmoke; cursor:pointer;">White</a>
+                                                <a (click)="Sel(4)" style="color:royalblue; cursor:pointer;">Blue</a>
+                                                <a (click)="Sel(5)" style="color:yellow; cursor:pointer;">Yellow</a>
+                                                <a (click)="Sel(6)" style="color:purple; cursor:pointer;">Purple</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+
+                                    <button *ngIf="erase == 1" class="btn btn-success btn-sm text-center" (click)="erase = 0">Draw</button>
+                                    <button *ngIf="erase == 0" class="btn btn-dark btn-sm text-center" (click)="erase = 1">Erase</button>
+
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+
+</section>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div (dblclick)="MouseDoubleClick()" (mousedown)="MouseDraw()" (mouseup)="MouseFree()" id="MasterWrapper" class="set-margin set-padding center-block-horiz">
+    <div class="
+responsive-wrapper"
+         style="-webkit-overflow-scrolling: touch; overflow: visible;">
+        <div *ngIf="CheckRecording()==0 && !CheckPlayBack()">
+            <div class="row justify-content-center" style="background-color: black">
+                <div>
+                    <span style="color:white; font-size:16px;">Drawing area - touch/ mouse over to start - Drawing area</span>
+                </div>
+            </div>
+            <div class="row  set-border">
+                <div class="col nopadding" *ngFor="let l of lightsList">
+                    <div (mouseover)="RegSq(l)" (click)="RegSq(l)">
+                        <div>
+                            <div *ngIf="getActiveLight() != l.id" class="Sq2" style="background-color:white;"></div>
+                        </div>
+                        <div *ngIf="getActiveLight() == l.id">
+                            <div *ngIf="l.colour == 1" class="set-border Sq2" style="background-color:red;"></div>
+                            <div *ngIf="l.colour == 2" class="set-border Sq2" style="background-color:green;"></div>
+                            <div *ngIf="l.colour == 3" class="set-border Sq2" style="background-color:white;"></div>
+                            <div *ngIf="l.colour == 4" class="set-border Sq2" style="background-color:royalblue;"></div>
+                            <div *ngIf="l.colour == 5" class="set-border Sq2" style="background-color:yellow;"></div>
+                            <div *ngIf="l.colour == 6" class="set-border Sq2" style="background-color:purple;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" style="background-color: black">
+                <div>
+                    <span style="color:white; font-size:16px;">Drawing area - touch/ mouse over to start - Drawing area</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="CheckRecording()==3">
+            <h4 style="color:white">Add recording tags?</h4>
+        </div>
+        <div *ngIf="CheckRecording()==1 && !CheckPlayBack()">
+            <div class="row justify-content-center" style="background-color: black">
+                <div *ngIf="draw == 0  && erase == 0 &&  CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">touch/ hold down mouse to draw | double click to insert predicted path </span>
+                </div>
+                <div *ngIf="draw == 0  && erase == 1 &&  CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">touch/ hold down mouse to erase </span>
+                </div>
+                <div *ngIf="draw > 0  && erase == 0 &&  CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">Drawing</span>
+                </div>
+                <div *ngIf="draw > 0 && erase == 1 && CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">Erasing</span>
+                </div>
+
+            </div>
+            <div class="row  set-border">
+                <div class="col nopadding" *ngFor="let l of lightsList">
+                    <div (mouseover)="RegSq(l)" (click)="RegSq(l)">
+                        <div *ngIf="!sqActivated.includes(l.sequence)">
+                            <div class="Sq2" style="background-color:white;"></div>
+                        </div>
+                        <div *ngIf="sqActivated.includes(l.sequence)">
+                            <div class="Sq2" *ngIf="getColourDrw(l.sequence) == 1" style="background-color:red;"></div>
+                            <div class="Sq2" *ngIf="getColourDrw(l.sequence) == 2" style="background-color:green;"></div>
+                            <div class="Sq2" *ngIf="getColourDrw(l.sequence) == 3" style="background-color:white;"></div>
+                            <div class="Sq2" *ngIf="getColourDrw(l.sequence) == 4" style="background-color:royalblue;"></div>
+                            <div class="Sq2" *ngIf="getColourDrw(l.sequence) == 5" style="background-color:yellow;"></div>
+                            <div class="Sq2" *ngIf="getColourDrw(l.sequence) == 6" style="background-color:purple;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" style="background-color: black">
+                <div *ngIf="draw == 0  && erase == 0 &&  CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">touch/ hold down mouse to draw | double click to insert predicted path </span>
+                </div>
+                <div *ngIf="draw == 0  && erase == 1 &&  CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">touch/ hold down mouse to erase </span>
+                </div>
+                <div *ngIf="draw > 0  && erase == 0 &&  CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">Drawing</span>
+                </div>
+                <div *ngIf="draw > 0 && erase == 1 && CheckRecording()!=3">
+                    <span style="color:white; font-size:16px;">Erasing</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="CheckPlayBack()">
+            <div style="background-color: black" class="row justify-content-center">
+                <div>
+                    <span style="color:white; font-size:16px;">Drawing from data</span>
+                </div>
+            </div>
+            <div class="row  set-border">
+                <div class="col nopadding" *ngFor="let l of lightsList">
+                    <div>
+                        <div *ngIf="!CheckActiveDrawVal(l.sequence)">
+                            <div class="Sq2" style="background-color:white;"></div>
+                        </div>
+                        <div *ngIf="CheckActiveDrawVal(l.sequence)">
+                            <div class="Sq2" *ngIf="getColourPlay(l.sequence) == 1" style="background-color:red;"></div>
+                            <div class="Sq2" *ngIf="getColourPlay(l.sequence) == 2" style="background-color:green;"></div>
+                            <div class="Sq2" *ngIf="getColourPlay(l.sequence) == 3" style="background-color:white;"></div>
+                            <div class="Sq2" *ngIf="getColourPlay(l.sequence) == 4" style="background-color:royalblue;"></div>
+                            <div class="Sq2" *ngIf="getColourPlay(l.sequence) == 5" style="background-color:yellow;"></div>
+                            <div class="Sq2" *ngIf="getColourPlay(l.sequence) == 6" style="background-color:purple;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color: black" class="row justify-content-center">
+                <div>
+                    <span style="color:white; font-size:16px;">Drawing from data</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

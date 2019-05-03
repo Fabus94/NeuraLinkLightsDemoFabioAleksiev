@@ -1,0 +1,14 @@
+<div id="pinUp4">
+    <label *ngIf="timerOn == 1 && Seconds % 2 == 0" style="color:green;">Running</label>
+    <label *ngIf="timerOn == 0" style="color:whitesmoke;">Paused</label>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        &nbsp; &nbsp;
+        <button class="btn btn-primary  btn-sm" (click)="RestartTime()">Restart app</button>
+        &nbsp; &nbsp;
+        <button *ngIf="timerOn == 1" (click)="StopTimer()" class="btn btn-danger btn-sm">Pause app </button>
+        <button *ngIf="timerOn == 0" (click)="StartTimer()" class="btn btn-success btn-sm">Start app</button>
+    </div>
+</div>
+

@@ -1,0 +1,6 @@
+#pinUp4 {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 2; /* Stay on top */
+    top: 106px; /* Stay at the top */
+    left: 320px;
+}

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Neuralink lights demo</title>
+    <environment include="Development">
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link href="~/lib/css/bootstrap.min.css" rel="stylesheet" />
+    </environment>
+</head>
+
+<body>
+
+    <section class="container-fluid  thebody">
+        @RenderBody()
+    </section>
+
+    <environment include="Development">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.js"
+                    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+                    crossorigin="anonymous"></script>
+            <script src="~/lib/js/bootstrap.bundle.js"></script>
+        </environment>
+        <environment exclude="Development">
+            <script scr="//ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"
+                    asp-fallback-src="https://code.jquery.com/jquery-3.3.1.slim.js"
+                    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+                    crossorigin="anonymous"
+                    asp-fallback-test="window.JQuery"></script>
+            <script scr="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                    asp-fallback-src="~/lib/js/bootstrap.bundle.min.js"
+                    asp-fallback-test="window.JQuery && window.jQuery.fn && window.jQuery.fn.modal"></script>
+        </environment>
+        @RenderSection("scripts", false)
+   
+</body>
+</html>

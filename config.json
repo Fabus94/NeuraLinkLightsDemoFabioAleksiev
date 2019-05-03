@@ -1,0 +1,11 @@
+{
+  "ConnectionStrings": {
+    "lightsConnectionString": ""
+  },
+  "Loggin": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  }
+}
