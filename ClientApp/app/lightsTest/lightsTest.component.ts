@@ -598,8 +598,18 @@ export class LightsTest implements OnInit {
 
     //OpenLast Recorded Pattern or last played pattern
     OpenForPlayBackLP() {
-        this.data.playBackModel = this.data.lightsEntriesReturnInst;
-        this.PlayBackDrawingPattern();
+        this.lightEntriesList = this.data.lightEntriesList;
+        var check: number = 1;
+        var over: number = 0;
+        while (check == 1) {
+            if (this.lightEntriesList[over].algorithmParameter1 != "0") {
+                this.data.playBackModel = this.lightEntriesList[over];
+                check = 0;
+            }
+            over++;
+        }
+        this.PlayBackDrawingPattern(); 
+
     }
 
     //Return the display property for loaded pattern in dropdown list
