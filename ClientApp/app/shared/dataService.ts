@@ -63,6 +63,7 @@ export class DataService {
         return this.http.post("/api/lights/newEntrie", this.lightsSnapshot)
             .map((data: any) => {    
                 this.lightsEntriesReturnInst = data;
+                this.lightEntriesList.push(data);
                 return true;
             });
     }
